@@ -118,441 +118,443 @@ ack
 ```
 
 ### Web Server Setup
-	```
-	brew install \
-	dnsmasq \
-	nginx \
-	mariadb \
-	redis \
-	memcached \
-	libmemcached
-	```
+```
+brew install \
+dnsmasq \
+nginx \
+mariadb \
+redis \
+memcached \
+libmemcached
+```
 
-### Setup Application (Skip already installed applications. All applications are not mandatory. Recommended for developers.)
-	```
-	# add support for fonts
-	brew tap caskroom/fonts
+### Setup Application 
 
-	#add dev/beta versions
-	brew tap caskroom/versions
+(Skip already installed applications. All applications are not mandatory. Recommended for developers.)
+```
+# add support for fonts
+brew tap caskroom/fonts
 
-	#install mac apps & fonts
-	brew cask install \
-	font-source-code-pro \
-	adobe-creative-cloud \
-	blueharvest \
-	cleanmymac \
-	cocktail \
-	ghostlab \
-	coda \
-	sublime-text-dev \
-	virtualbox \
-	coderunner \
-	google-chrome \
-	firefox \
-	codekit \
-	iterm2-beta \
-	sequel-pro \
-	querious \
-	imageoptim \
-	imagealpha \
-	xquartz \
-	simpholders-2-alpha \
-	handbrake \
-	vagrant \
-	ksdiff \
-	spotify
-	```
+#add dev/beta versions
+brew tap caskroom/versions
+
+#install mac apps & fonts
+brew cask install \
+font-source-code-pro \
+adobe-creative-cloud \
+blueharvest \
+cleanmymac \
+cocktail \
+ghostlab \
+coda \
+sublime-text-dev \
+virtualbox \
+coderunner \
+google-chrome \
+firefox \
+codekit \
+iterm2-beta \
+sequel-pro \
+querious \
+imageoptim \
+imagealpha \
+xquartz \
+simpholders-2-alpha \
+handbrake \
+vagrant \
+ksdiff \
+spotify
+```
 
 ### Setup Xcode
-	From the apple store Install Xcode. Agree to the terms and license post installation.
+From the apple store Install Xcode. Agree to the terms and license post installation.
 
 ### Setting up hostname
-	```
-	# This will set the hostname to 'Work'. Set any host name of your choice.
-	sudo scutil --set HostName Work
-	```
+```
+# This will set the hostname to 'Work'. Set any host name of your choice.
+sudo scutil --set HostName Work
+```
 
 ### Git Setup
 
-	```
-	# your github email address
-	ssh-keygen -t rsa -C "youremail@domain.com"
+```
+# your github email address
+ssh-keygen -t rsa -C "youremail@domain.com"
 
-	#copy ssh key to clipboard for adding to github.com
-	pbcopy < ~/.ssh/id_rsa.pub
+#copy ssh key to clipboard for adding to github.com
+pbcopy < ~/.ssh/id_rsa.pub
 
-	#test connection
-	ssh -T git@github.com
+#test connection
+ssh -T git@github.com
 
-	#set git config values
-	#your name, email, github username
-	git config --global user.name "Your Name" && \
-	git config --global user.email "youremail@domain.com" && \
-	git config --global github.user your_username && \
-	git config --global core.editor "subl -w" && \
-	git config --global color.ui true && \
-	git config --global push.default simple
+#set git config values
+#your name, email, github username
+git config --global user.name "Your Name" && \
+git config --global user.email "youremail@domain.com" && \
+git config --global github.user your_username && \
+git config --global core.editor "subl -w" && \
+git config --global color.ui true && \
+git config --global push.default simple
 
-	# Add your token, Tokens can be generated from the github profile page.
-	git config --global github.token your_token_here
+# Add your token, Tokens can be generated from the github profile page.
+git config --global github.token your_token_here
 
-	```
+```
 
-	```
-	#diff-so-fancy
-	brew install diff-so-fancy
-	git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX" && \
-	git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
-	```
+```
+#diff-so-fancy
+brew install diff-so-fancy
+git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX" && \
+git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
+```
 
 ### Ruby & Gems Setup
 
-	#### Ruby Version Manager
-	```
-	curl -L https://get.rvm.io | bash -s stable --rails
-	```
+#### Ruby Version Manager
+```
+curl -L https://get.rvm.io | bash -s stable --rails
+```
 
-	#### Gems 
-	````
-	gem install pygmentize growl guard guard-phpunit bropages
-	````
+#### Gems 
+````
+gem install pygmentize growl guard guard-phpunit bropages
+````
 
 ### Node
 
-	#### Coffee Script
-	````
-	npm install -g coffee-script bower
-	````
+#### Coffee Script
+````
+npm install -g coffee-script bower
+````
 
-	#### Vagrant (Make sure vagrant is installed before)
-	````
-	vagrant plugin install vagrant-hostsupdater
-	````
+#### Vagrant (Make sure vagrant is installed before)
+````
+vagrant plugin install vagrant-hostsupdater
+````
 
 ### PHP Installation
 
-	```
-	#switch from SecureTransport
-	brew reinstall --with-openssl curl
+```
+#switch from SecureTransport
+brew reinstall --with-openssl curl
 
-	#install php-fpm
-	brew tap homebrew/dupes && \
-	brew tap homebrew/versions && \
-	brew tap homebrew/php && \
-	brew tap homebrew/dupes && \
-	brew install php70 \
-	--with-fpm \
-	--without-apache \
-	--with-mysql \
-	--with-homebrew-curl \
-	--with-homebrew-openssl \
-	--without-snmp
+#install php-fpm
+brew tap homebrew/dupes && \
+brew tap homebrew/versions && \
+brew tap homebrew/php && \
+brew tap homebrew/dupes && \
+brew install php70 \
+--with-fpm \
+--without-apache \
+--with-mysql \
+--with-homebrew-curl \
+--with-homebrew-openssl \
+--without-snmp
 
-	# mcrypt is required for encryption
-	brew install php70-mcrypt
+# mcrypt is required for encryption
+brew install php70-mcrypt
 
-	#setup daemon/ Auto start
-	ln -sfv /usr/local/opt/php70/*.plist ~/Library/LaunchAgents && \
-	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php70.plist
+#setup daemon/ Auto start
+ln -sfv /usr/local/opt/php70/*.plist ~/Library/LaunchAgents && \
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php70.plist
 
-	```
+```
 
 ### PHP Redis Installation
 
-	```
-	#brew install php70-redis
-	brew install --HEAD homebrew/php/php70-redis
-	```
+```
+#brew install php70-redis
+brew install --HEAD homebrew/php/php70-redis
+```
 
 ### Auto load on start (Maria DB)
 
-	```
-	#setup daemon
-	ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents && \
-	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
+```
+#setup daemon
+ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents && \
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 
-	#initial setup
-	mysql_install_db
+#initial setup
+mysql_install_db
 
-	#secure mariadb
-	mysql_secure_installation
-	```
+#secure mariadb
+mysql_secure_installation
+```
 
 ### Nginx (Auto Load)
-	```
-	sudo cp -v /usr/local/opt/nginx/*.plist /Library/LaunchDaemons/ && 
-	sudo chown root:wheel /Library/LaunchDaemons/homebrew.mxcl.nginx.plist &&
-	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
-	```
+```
+sudo cp -v /usr/local/opt/nginx/*.plist /Library/LaunchDaemons/ && 
+sudo chown root:wheel /Library/LaunchDaemons/homebrew.mxcl.nginx.plist &&
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+```
 
 
 ### Nginx & Virtual host configuration & Project Setup
 
-	#### Installation of headers_more module (Required during execution)
-		```
-		brew unlink nginx
-		brew install nginx-full --with-headers-more-module
-		brew link nginx-full
-		```
+#### Installation of headers_more module (Required during execution)
+```
+brew unlink nginx
+brew install nginx-full --with-headers-more-module
+brew link nginx-full
+```
 
-	#### Adding DNS setting for dnsmasq
+#### Adding DNS setting for dnsmasq
 
-		This will route requests to any url ending in ***.build*** back our localhost. The goal is to use urls like http://example.com.build for development while you work on http://example.com
+This will route requests to any url ending in ***.build*** back our localhost. The goal is to use urls like http://example.com.build for development while you work on http://example.com
 
-		```
-		# This will configure the resolvers for you. Further dnsmasq will auto start on reboot.
+```
+# This will configure the resolvers for you. Further dnsmasq will auto start on reboot.
 
-		mkdir -pv $(brew --prefix)/etc/ && \
-		echo 'address=/.build/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf && \
-		sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons && \
-		sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist && \
-		sudo mkdir -v /etc/resolver && \
-		sudo zsh -c 'echo "nameserver 127.0.0.1" > /etc/resolver/build'
-		```
+mkdir -pv $(brew --prefix)/etc/ && \
+echo 'address=/.build/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf && \
+sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons && \
+sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist && \
+sudo mkdir -v /etc/resolver && \
+sudo zsh -c 'echo "nameserver 127.0.0.1" > /etc/resolver/build'
+```
 
-	#### Nginx Configuration for virtual hosts.
+#### Nginx Configuration for virtual hosts.
 
-		Edit the ***/usr/local/etc/nginx/nginx.conf*** file
+Edit the ***/usr/local/etc/nginx/nginx.conf*** file
 
-		Change the port to 80. 
-		```
-		listen       80;
-		server_name  localhost;
-		```
+Change the port to 80. 
+```
+listen       80;
+server_name  localhost;
+```
 
-		*Add the following Line within the server block.*
+***Add the following Line within the server block.***
 
-		```
-		location ~ \.php$ {
-		    fastcgi_pass 127.0.0.1:9000;
+```
+location ~ \.php$ {
+    fastcgi_pass 127.0.0.1:9000;
 
-		    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		    fastcgi_index index.php;
-		    include fastcgi_params;
-		    fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_na$
-		}
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_index index.php;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_na$
+}
 
-		```
+```
 
-	#### Reboot nginx, use the following command
-		```
-		brew services restart nginx
-		```
+#### Reboot nginx, use the following command
+```
+brew services restart nginx
+```
 
-		Or
+Or
 
-		````
-		sudo nginx -s stop;
-		sudo nginx;
-		````
+````
+sudo nginx -s stop;
+sudo nginx;
+````
 
-	#### Getting the project files.
+#### Getting the project files.
 
-		The default file structure we keep here is ***'~/Sites/banabandy.com/htdocs/files_here'***
+The default file structure we keep here is ***'~/Sites/banabandy.com/htdocs/files_here'***
 
-		Create the directory structure through:
-		```
-		cd
-		mkdir -p Sites/bananabandy.com/htdocs;
-		```
+Create the directory structure through:
+```
+cd
+mkdir -p Sites/bananabandy.com/htdocs;
+```
 
-		Thus we have a folder at location */Users/[user_name]/Sites/bananabandy.com/htdocs*
+Thus we have a folder at location */Users/[user_name]/Sites/bananabandy.com/htdocs*
 
-		Clone the Project Files
-		```
-		cd /Users/[user_name]/Sites/bananabandy.com/htdocs;
+Clone the Project Files
+```
+cd /Users/[user_name]/Sites/bananabandy.com/htdocs;
 
-		#Make sure the you have access to the project.
-		git clone https://github.com/bananabandy/bbv2.git
-		cd webservice
-  		ll
-  		./init
-		```
-		
-		Composer Installation 
-		```
-		brew install composer;
-		```
+#Make sure the you have access to the project.
+git clone https://github.com/bananabandy/bbv2.git
+cd webservice
+	ll
+	./init
+```
 
-		Link the database the application
-		```
-		vi common/config/main-local.php
+Composer Installation 
+```
+brew install composer;
+```
 
-		#Add the database, user and password details.
-		# To import database through adminer see instructions below.
-		```
-	
-		Installing plugins and dependecies of yii
+Link the database the application
+```
+vi common/config/main-local.php
 
-		```
-		composer selfupdate
-		composer global require fxp/composer-asset-plugin:^1.2.0
-		bash
- 		composer global require "hirak/prestissimo:^0.3"
-  		composer install
-		```
-		
-		Migrate Database
-		```
-		./yii migrate;
-		```
+#Add the database, user and password details.
+# To import database through adminer see instructions below.
+```
 
-	#### Virtual host configuration.
+Installing plugins and dependecies of yii
 
-		Define the virtual host configuration files for it to work.
+```
+composer selfupdate
+composer global require fxp/composer-asset-plugin:^1.2.0
+bash
+	composer global require "hirak/prestissimo:^0.3"
+	composer install
+```
 
-		```
-		cd /usr/local/nginx/
-		#All the configuration files will be stored here.
-		mkdir sites-available;
+Migrate Database
+```
+./yii migrate;
+```
 
-		#Link the configuration files in the sites-available to the sites-enabled folder. 
-		mkdir sites-enabled;
-	
-		```
-		
-		We define 3 virtual hosts for our web application.
-		* api.bbv2.build
-		* frontend.bbv2.build
-		* backend.bbv2.build
-	
-		Place the configuration of each virtual hosts in the ***sites-available*** folder. 
+#### Virtual host configuration.
 
-		Create a file 'front.bbv2.dev.conf'
-		```
+Define the virtual host configuration files for it to work.
 
-		server {
-		    listen 80;
-		   	# server_name defines the virtual host url. frontend.bbv2.build
-		    server_name frontend.bbv2.build;
-		    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webapp/public;
+```
+cd /usr/local/nginx/
+#All the configuration files will be stored here.
+mkdir sites-available;
 
-		    try_files $uri/index.html $uri.html $uri @app;
+#Link the configuration files in the sites-available to the sites-enabled folder. 
+mkdir sites-enabled;
 
-		    location / {
-		        try_files $uri $uri/ /index.php?$query_string;
-		    }
+```
 
-		    location = /50x.html {
-		        root   html;
-		    }
+We define 3 virtual hosts for our web application.
+* api.bbv2.build
+* frontend.bbv2.build
+* backend.bbv2.build
 
-		    location ~ \.php$ {
-		      fastcgi_pass 127.0.0.1:9000;
+Place the configuration of each virtual hosts in the ***sites-available*** folder. 
 
-		      fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		      fastcgi_index index.php;
-		      include fastcgi_params;
-		      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
-		    }
+Create a file 'front.bbv2.dev.conf'
+```
 
-		}
+server {
+    listen 80;
+   	# server_name defines the virtual host url. frontend.bbv2.build
+    server_name frontend.bbv2.build;
+    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webapp/public;
 
-		```
+    try_files $uri/index.html $uri.html $uri @app;
 
-		Create a file ***'api.bbv2.dev.conf'***
-		
-		```
-		server {
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-		    listen 80;
+    location = /50x.html {
+        root   html;
+    }
 
-		    server_name api.bbv2.build;
+    location ~ \.php$ {
+      fastcgi_pass 127.0.0.1:9000;
 
+      fastcgi_split_path_info ^(.+\.php)(/.+)$;
+      fastcgi_index index.php;
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
 
-		    #access_log /var/log/nginx/api.bbv2.build.access.log;
-		    #error_log /var/log/nginx/api.bbv2.build.error.log;
+}
+
+```
+
+Create a file ***'api.bbv2.dev.conf'***
+
+```
+server {
+
+    listen 80;
+
+    server_name api.bbv2.build;
 
 
-		    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webservice/api/web;
-
-		    more_set_headers 'Access-Control-Allow-Origin: $http_origin';
-		    more_set_headers 'Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, HEAD';
-		    more_set_headers 'Access-Control-Allow-Credentials: true';
-		    more_set_headers 'Access-Control-Allow-Headers: Origin,Content-Type,Accept,Authorization';
-
-		    location / {
-		        try_files $uri $uri/ /index.php?$args;
-		    }
-		    location ~ \.php$ {
-		      fastcgi_pass 127.0.0.1:9000;
-
-		      fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		      fastcgi_index index.php;
-		      include fastcgi_params;
-		      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
-		    }
-
-		    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		    proxy_set_header Host $http_host;
-		    index index.php index.html index.htm;
-		}
-		```
-
-		Create a file ***back.bbv2.build.conf***
-		
-		```
-		server {
-
-		    listen 80;
-
-		    server_name back.bbv2.build;
+    #access_log /var/log/nginx/api.bbv2.build.access.log;
+    #error_log /var/log/nginx/api.bbv2.build.error.log;
 
 
-		    #access_log /var/log/nginx/back.bbv2.build.access.log;
-		    #error_log /var/log/nginx/back.bbv2.build.error.log;
+    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webservice/api/web;
 
-		    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webservice/backend/web;
+    more_set_headers 'Access-Control-Allow-Origin: $http_origin';
+    more_set_headers 'Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, HEAD';
+    more_set_headers 'Access-Control-Allow-Credentials: true';
+    more_set_headers 'Access-Control-Allow-Headers: Origin,Content-Type,Accept,Authorization';
 
-		    index index.php index.html index.htm;
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+    location ~ \.php$ {
+      fastcgi_pass 127.0.0.1:9000;
 
-		    location / {
-		        try_files $uri $uri/ /index.php?$args;
-		    }
+      fastcgi_split_path_info ^(.+\.php)(/.+)$;
+      fastcgi_index index.php;
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
 
-		    location ~ \.php$ {
-		      fastcgi_pass 127.0.0.1:9000;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    index index.php index.html index.htm;
+}
+```
 
-		      fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		      fastcgi_index index.php;
-		      include fastcgi_params;
-		      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
-		    }
-		}
-		```
+Create a file ***back.bbv2.build.conf***
 
-		***Link each conf file to the sites-enabled folder.***
+```
+server {
 
-		```
-		ln -s /usr/local/etc/nginx/sites-available/front.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/front.bbv2.build.conf;
-		ln -s /usr/local/etc/nginx/sites-available/back.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/back.bbv2.build.conf;
-		ln -s /usr/local/etc/nginx/sites-available/api.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/api.bbv2.build.conf;
-		```
-		
-		Edit the nginx.conf (/usr/local/etc/nginx/nginx.conf)file and include the virtual host configurations.
-		Add the following at the end with the last block.
+    listen 80;
 
-		```
-		include sites-enabled/*.conf;
-		```
-		
-		Place the configuration file to link api's.
-		Create a file ***config.js*** in ***'webapp/public/assets/js/config.js'***
-		
-		```
-		init = {};
-		init.restUrl = "http://api.bbv2.build/v1/";
-		init.googleAppID = "11111-rqmgs5ij47iiai4nug0ods9n2aeo9031";
-		init.facebookAppID = '1615086312089900';
-		init.errlyticsDisabled = false;
-		```
+    server_name back.bbv2.build;
 
-		Restart your system for the changes to take place. 
 
-		Just open frontend.bbv2.build in the browser. 
+    #access_log /var/log/nginx/back.bbv2.build.access.log;
+    #error_log /var/log/nginx/back.bbv2.build.error.log;
 
-		Congratulations, you are good to go. :)
+    root /Users/[user_name]/Sites/bananabandy.com/htdocs/webservice/backend/web;
+
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+      fastcgi_pass 127.0.0.1:9000;
+
+      fastcgi_split_path_info ^(.+\.php)(/.+)$;
+      fastcgi_index index.php;
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
+}
+```
+
+***Link each conf file to the sites-enabled folder.***
+
+```
+ln -s /usr/local/etc/nginx/sites-available/front.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/front.bbv2.build.conf;
+ln -s /usr/local/etc/nginx/sites-available/back.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/back.bbv2.build.conf;
+ln -s /usr/local/etc/nginx/sites-available/api.bbv2.build.conf /usr/local/etc/nginx/sites-enabled/api.bbv2.build.conf;
+```
+
+Edit the nginx.conf (/usr/local/etc/nginx/nginx.conf)file and include the virtual host configurations.
+Add the following at the end with the last block.
+
+```
+include sites-enabled/*.conf;
+```
+
+Place the configuration file to link api's.
+Create a file ***config.js*** in ***'webapp/public/assets/js/config.js'***
+
+```
+init = {};
+init.restUrl = "http://api.bbv2.build/v1/";
+init.googleAppID = "11111-rqmgs5ij47iiai4nug0ods9n2aeo9031";
+init.facebookAppID = '1615086312089900';
+init.errlyticsDisabled = false;
+```
+
+Restart your system for the changes to take place. 
+
+Just open frontend.bbv2.build in the browser. 
+
+Congratulations, you are good to go. :)
 
 
 # setup for image optimization
