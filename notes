@@ -2,3 +2,6 @@
 2. Angular dependency injection happes through injector.
 3. document.QuerySelector('[ng-app]'): It is used to select DOM element with ng-app attribute in it.
 4. Dependency Injection implement IoC i.e inversion of control design pattern.
+5. {{ }} It is similar to eval in JS.
+6. Interpolation: Similar to binded scope variables.
+7. Code must be loosely coupled and tight cohesion.
