@@ -8,10 +8,6 @@
       $scope.list = '';
       $scope.textColor = '';
       $scope.processList = function(){
-        if ($scope.list === '')
-          alertMsg(EmptyListString(), true);
-
-        else{
           dishes = $scope.list.split(',');
           var count = 0;
           for (var i = 0; i < dishes.length; i++)
@@ -20,12 +16,14 @@
               count++;
           }
 
-          if (count <= 3)
+          if (count === 0)
+            alertMsg(EmptyListString(), true);
+
+          else if (count <= 3)
             alertMsg(enjoyMsgString(), false);
 
           else
             alertMsg(tooMuchMsgString(), false);
-        }
       };
 
       function alertMsg(msg, isError)
