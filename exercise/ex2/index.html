@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="app2">
+  <head>
+    <meta charset="utf-8">
+    <title>Upper Case</title>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="upCase">
+    <input type="text" ng-model="name" ng-blur="upperCase();"/>
+    <p> You Entered: {{name}} </p>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="asciiCal">
+  <head>
+    <meta charset="utf-8">
+    <title>My First Angular JS app</title>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="calculate">
+    <h2> Name to Numeric Convertor </h2>
+
+    <input type="text" ng-model="name" ng-keyup="displayNumber()"/><br/>
+    <p> The numberic value is : {{numeric}} </p>
+
+  </body>
+</html>

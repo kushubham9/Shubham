@@ -1,0 +1,4 @@
+1. Filter service is used to manipulate the data that is in the DOM. 
+2. Angular dependency injection happes through injector.
+3. document.QuerySelector('[ng-app]'): It is used to select DOM element with ng-app attribute in it.
+4. Dependency Injection implement IoC i.e inversion of control design pattern.
