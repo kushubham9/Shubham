@@ -16,7 +16,7 @@
           var count = 0;
           for (var i = 0; i < dishes.length; i++)
           {
-            if (dishes[i] !== '')
+            if (dishes[i].trim() !== '')
               count++;
           }
 
