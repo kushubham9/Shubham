@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Ng-Repeat</title>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="shopping_cart">
+    <h2> Shopping List </h2>
+
+    <ul>
+        <li ng-repeat="item in list1 | filter : search">{{item}} </li>
+    </ul>
+    <input type="text" ng-model="search">
+    <button type="button" ng-click="show_watchers_count();"># Watchers</button>
+  </body>
+</html>
