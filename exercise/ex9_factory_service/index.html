@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Factory Shopping Cart</title>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></style>
+  </head>
+  <body>
+    <h2> Shopping Cart Service </h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm6">
+          <h4> Cart 1 </h4>
+          <div ng-controller="shoppingController1 as shop1">
+            <ul>
+              <li ng-repeat="item in shop1.getList()">{{item.name}} - {{item.quantity}}
+                <button type="button" ng-click="shop1.removeItem($index)">Remove</button>
+              </li>
+            </ul>
+
+            <p> Functions </p>
+              <input type="text" name="" id="" ng-model="shop1.name" placeholder="Item Name">
+              <input type="text" name="" id="" ng-model="shop1.quan" placeholder="Item Quantity">
+              <button type="button" ng-click="shop1.addToCart()">Add</button>
+            <br/><br/>
+            <p class="error" ng-model="shop1.error"></p>
+          </div>
+        </div>
+
+        <div class="col-sm6">
+          <h4> Cart 2 </h4>
+          <div ng-controller="shoppingController2 as shop2">
+            <ul>
+              <li ng-repeat="item in shop2.getList()">{{item.name}} - {{item.quantity}}
+                <button type="button" ng-click="shop2.removeItem($index)">Remove</button>
+              </li>
+            </ul>
+
+            <p> Functions </p>
+              <input type="text" name="" id="" ng-model="shop2.name" placeholder="Item Name">
+              <input type="text" name="" id="" ng-model="shop2.quan" placeholder="Item Quantity">
+              <button type="button" ng-click="shop2.addToCart()">Add</button>
+            <br/><br/>
+            <p class="error" ng-model="shop2.error"> Error</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>

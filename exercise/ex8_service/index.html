@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Scope Inheritance</title>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div ng-controller="viewCart as viewCart">
+      <h2> Shopping Cart Items </h2>
+      <ul>
+        <li ng-repeat="item in viewCart.getItemList()">
+          Product: {{item.name}} || Quantity: {{item.quantity}}
+        </li>
+      </ul>
+    </div>
+
+    <div ng-controller="shoppingCart as sCart">
+      <input type="text" name="" id="" ng-model="sCart.prodName">
+      <input type="text" name="" id="" ng-model="sCart.prodQuan">
+      <button type="button" ng-click="sCart.addItem()"> Add Item </button>
+    </div>
+  </body>
+</html>
